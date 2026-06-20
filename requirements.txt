@@ -8,7 +8,8 @@
 streamlit==1.45.1
 
 # --- Gemini AI (New SDK — required for Gemini 2.5 Flash) ---
-google-genai==1.16.0
+google-genai>=1.16.0
+google-auth>=2.0.0
 
 # --- Speech-to-Text ---
 faster-whisper==1.1.1
