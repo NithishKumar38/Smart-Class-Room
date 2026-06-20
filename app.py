@@ -191,18 +191,28 @@ p, li, label, .stMarkdown {
 }
 
 /* Text inputs */
-.stTextInput > div > div > input {
-    background: rgba(255, 255, 255, 0.05) !important;
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea {
+    background: #1a2d45 !important;
     border: 1px solid var(--border) !important;
     border-radius: 10px !important;
-    color: var(--text-primary) !important;
+    color: #e8f4fd !important;
     font-family: var(--font-main) !important;
     padding: 0.6rem 1rem !important;
     transition: border 0.2s;
+    -webkit-text-fill-color: #e8f4fd !important;
 }
-.stTextInput > div > div > input:focus {
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus {
     border-color: var(--primary) !important;
     box-shadow: 0 0 0 2px rgba(74, 144, 217, 0.2) !important;
+    color: #e8f4fd !important;
+    -webkit-text-fill-color: #e8f4fd !important;
+}
+.stTextInput > div > div > input::placeholder,
+.stTextArea > div > div > textarea::placeholder {
+    color: #5a7fa0 !important;
+    -webkit-text-fill-color: #5a7fa0 !important;
 }
 
 /* Selectbox & slider */
