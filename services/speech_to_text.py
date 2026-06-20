@@ -19,9 +19,11 @@ import tempfile
 import wave
 from typing import Optional
 
-from dotenv import load_dotenv
-
-load_dotenv()
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------

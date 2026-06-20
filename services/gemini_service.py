@@ -18,7 +18,6 @@ import logging
 from pathlib import Path
 from typing import Optional
 
-from dotenv import load_dotenv
 from tenacity import (
     retry,
     stop_after_attempt,
@@ -32,7 +31,20 @@ from google.genai import types
 # ---------------------------------------------------------------------------
 # Bootstrap
 # ---------------------------------------------------------------------------
-load_dotenv()
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
+# Sync st.secrets → os.environ (works on Streamlit Cloud)
+try:
+    import streamlit as st
+    for _k, _v in st.secrets.items():
+        if _k not in os.environ:
+            os.environ[_k] = str(_v)
+except Exception:
+    pass
 logger = logging.getLogger(__name__)
 
 # Model identifier for Gemini 2.5 Flash

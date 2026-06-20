@@ -22,7 +22,6 @@ import logging
 from pathlib import Path
 
 import streamlit as st
-from dotenv import load_dotenv
 
 # ---------------------------------------------------------------------------
 # Path Setup — ensure project root is importable
@@ -32,8 +31,22 @@ sys.path.insert(0, str(ROOT))
 
 # ---------------------------------------------------------------------------
 # Environment & Logging
+# — On Streamlit Cloud: reads from st.secrets (set in Advanced Settings)
+# — On local machine:   reads from .env file via python-dotenv
 # ---------------------------------------------------------------------------
-load_dotenv()
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
+# Sync st.secrets → os.environ so all os.getenv() calls work everywhere
+try:
+    for _k, _v in st.secrets.items():
+        if _k not in os.environ:
+            os.environ[_k] = str(_v)
+except Exception:
+    pass
 
 logging.basicConfig(
     level=logging.INFO,
