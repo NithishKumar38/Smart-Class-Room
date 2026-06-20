@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+assets/audio/*.mp3
+database/classroom.db
+*.egg-info/
+dist/
+build/
+.DS_Store

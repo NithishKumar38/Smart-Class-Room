@@ -1,0 +1,38 @@
+# ============================================================
+# AI Classroom Co-Pilot — Requirements
+# Python 3.11+
+# Install inside venv: pip install -r requirements.txt
+# ============================================================
+
+# --- Core Framework ---
+streamlit==1.45.1
+
+# --- Gemini AI (New SDK — required for Gemini 2.5 Flash) ---
+google-genai==1.16.0
+
+# --- Speech-to-Text ---
+faster-whisper==1.1.1
+
+# --- Text-to-Speech ---
+gTTS==2.5.3
+
+# --- Audio recording widget for Streamlit ---
+audio-recorder-streamlit==0.0.10
+
+# --- Environment variable loading ---
+python-dotenv==1.0.1
+
+# --- Data handling ---
+pandas==2.2.3
+
+# --- SVG fallback diagram generation ---
+svgwrite==1.4.3
+
+# --- Retry / resilience ---
+tenacity==9.1.2
+
+# --- Audio file handling ---
+pydub==0.25.1
+
+# --- Interactive 3D Educational Visualizations ---
+plotly==5.22.0
